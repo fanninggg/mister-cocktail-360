@@ -1,0 +1,18 @@
+<h1>Cocktails</h1>
+<div class="grid">
+  <% @cocktails.each do |cocktail| %>
+    <%= link_to cocktail_path(cocktail), class: 'cocktail-card-holder' do %>
+      <div class="cocktail-card">
+        <h3><%= cocktail.name %></h3>
+        <ul>
+          <% cocktail.doses.each do |dose| %>
+            <li><%= dose.ingredient.name %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "Create a cocktail", new_cocktail_path %>
+
